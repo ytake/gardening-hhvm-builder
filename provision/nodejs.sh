@@ -6,7 +6,7 @@ sudo apt-get -y update
 sudo apt-get -y dist-upgrade
 
 # node.js install 7.*
-curl --silent --location https://deb.nodesource.com/setup_7.x | bash -
+curl --silent --location https://rpm.nodesource.com/setup_9.x | bash -
 
 # Install Node
 

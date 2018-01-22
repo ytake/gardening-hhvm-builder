@@ -29,6 +29,7 @@ echo "html_errors = On" >> /etc/hhvm/server.ini
 echo "error_reporting = 22527" >> /etc/hhvm/server.ini
 echo "hhvm.server.fix_path_info = true" >> /etc/hhvm/server.ini
 echo "hhvm.php7.all = true" >> /etc/hhvm/server.ini
+echo "hhvm.php7.scalar_types = 0" >> /etc/hhvm/server.ini
 
 sed -i "s|date.timezone.*|date.timezone = Asia\/Tokyo|" /etc/hhvm/server.ini
 sed -i "s|hhvm.server.port = 9001|hhvm.server.port = 9000|g" /etc/hhvm/server.ini
