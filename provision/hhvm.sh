@@ -28,21 +28,16 @@ echo "display_errors = On" >> /etc/hhvm/server.ini
 echo "html_errors = On" >> /etc/hhvm/server.ini
 echo "error_reporting = 22527" >> /etc/hhvm/server.ini
 echo "hhvm.server.fix_path_info = true" >> /etc/hhvm/server.ini
-echo "hhvm.php7.all = true" >> /etc/hhvm/server.ini
-echo "hhvm.php7.scalar_types = 0" >> /etc/hhvm/server.ini
 
 sed -i "s|date.timezone.*|date.timezone = Asia\/Tokyo|" /etc/hhvm/server.ini
 sed -i "s|hhvm.server.port = 9001|hhvm.server.port = 9000|g" /etc/hhvm/server.ini
 
 # Install Composer
 
-curl -sS https://getcomposer.org/installer | php
+curl -sS https://getcomposer.org/installer | hhvm --php
 mv composer.phar /usr/local/bin/composer
 
 # Add Composer Global Bin To Path
 
 printf "\nPATH=\"$(sudo su - vagrant -c 'composer config -g home 2>/dev/null')/vendor/bin:\$PATH\"\n" | tee -a /home/vagrant/.profile
 
-sudo su vagrant <<'EOF'
-/usr/local/bin/composer global require "hirak/prestissimo:^0.3"
-EOF

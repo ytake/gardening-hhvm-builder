@@ -5,8 +5,9 @@ export DEBIAN_FRONTEND=noninteractive
 sudo apt-get -y update
 sudo apt-get -y dist-upgrade
 
-# node.js install 7.*
-curl --silent --location https://rpm.nodesource.com/setup_9.x | bash -
+# node.js install 11.*
+curl -sL https://deb.nodesource.com/setup_11.x | bash -
+apt-get install -y nodejs
 
 # Install Node
 
@@ -19,6 +20,7 @@ if [ $NPM_CONFIG = '/usr' ]; then
  echo "export NPM_CONFIG_PREFIX=~/.npm-global" >> /home/vagrant/.bash_profile
 fi
 
+/usr/bin/npm install -g relay-runtime
 /usr/bin/npm install -g gulp
 /usr/bin/npm install -g yarn
 /usr/bin/npm install -g webpack

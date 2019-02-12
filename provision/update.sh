@@ -6,8 +6,10 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update
 
 # Install Kernel Headers
+apt search kernel | grep `uname -r`
 
-apt-get install -y linux-headers-$(uname -r) build-essential
+apt-get install -y linux-headers-$(uname -r)
+apt-get install -y build-essential
 
 # Upgrade System Packages
 

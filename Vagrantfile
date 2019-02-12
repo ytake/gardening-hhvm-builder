@@ -7,7 +7,7 @@ VAGRANTFILE_API_VERSION = '2'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Configure The Box
-  config.vm.box = 'bento/ubuntu-16.04'
+  config.vm.box = 'bento/ubuntu-18.04'
   config.vm.hostname = 'gardening-hhvm'
 
   # Don't Replace The Default Key https://github.com/mitchellh/vagrant/pull/4707

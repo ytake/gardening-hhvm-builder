@@ -30,13 +30,19 @@ mysql --user="root" --password="00:secreT,@" -e "FLUSH PRIVILEGES;"
 mysql --user="root" --password="00:secreT,@" -e "CREATE DATABASE gardening character set UTF8mb4 collate utf8mb4_general_ci;"
 service mysql restart
 
+sudo tee /home/vagrant/.my.cnf <<EOL
+[mysqld]
+character-set-server=utf8mb4
+collation-server=utf8mb4_bin
+EOL
+
 # Add Timezone Support To MySQL
 
-mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql --user=root --password=secret mysql
+mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql --user="root" --password="00:secreT,@" mysql
 
 # Install Postgres
 
-apt-get install -y postgresql
+apt-get install -y postgresql-10
 
 # Configure Postgres Remote Access
 
